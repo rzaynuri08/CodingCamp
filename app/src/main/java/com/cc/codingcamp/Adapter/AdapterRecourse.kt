@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.test.learnactivity.R
+import com.cc.codingcamp.R
 import com.test.learnactivity.modal.ProductItem
 
 class ProductAdapter(private val context: Context, private val productList: List<ProductItem>) :
