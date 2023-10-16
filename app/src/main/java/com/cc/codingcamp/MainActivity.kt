@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         replaceFragment(dashboardFragment)
-
     }
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
