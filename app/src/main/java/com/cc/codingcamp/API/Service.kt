@@ -1,6 +1,6 @@
 package com.test.learnactivity.API
 
-import com.test.learnactivity.API.ApiService
+import com.cc.codingcamp.API.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

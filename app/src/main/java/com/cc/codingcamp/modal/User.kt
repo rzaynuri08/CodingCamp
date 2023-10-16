@@ -1,4 +1,4 @@
-package com.test.learnactivity.modal
+package com.cc.codingcamp.modal
 
 data class User(
     val username: String,

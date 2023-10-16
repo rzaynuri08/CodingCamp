@@ -1,9 +1,9 @@
-package com.test.learnactivity.API
+package com.cc.codingcamp.API
 
-import com.test.learnactivity.modal.ResponseModel
+import com.cc.codingcamp.modal.ResponseModel
 import retrofit2.Call
 import retrofit2.http.GET
-import com.test.learnactivity.modal.User
+import com.cc.codingcamp.modal.User
 import retrofit2.http.POST
 import retrofit2.http.Body
 

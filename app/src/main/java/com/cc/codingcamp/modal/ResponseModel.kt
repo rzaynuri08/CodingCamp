@@ -1,4 +1,4 @@
-package com.test.learnactivity.modal
+package com.cc.codingcamp.modal
 
 data class ResponseModel(
     val success: Boolean, // Menyatakan apakah operasi berhasil atau tidak
