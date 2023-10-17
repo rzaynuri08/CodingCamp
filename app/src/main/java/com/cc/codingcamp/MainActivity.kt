@@ -10,12 +10,17 @@ import com.cc.codingcamp.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private val dashboardFragment = HomeFragment()
+    private val eventFragment = EventFragment()
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.nav_dashboard -> {
                 replaceFragment(dashboardFragment)
-                true // Tambahkan `true` untuk menandakan bahwa item dipilih dengan sukses
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_event -> {
+                replaceFragment(eventFragment)
+                return@OnNavigationItemSelectedListener true
             }
         }
         false
@@ -28,8 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        replaceFragment(dashboardFragment)
+        if (savedInstanceState == null) {
+            replaceFragment(dashboardFragment)
+        }
     }
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()

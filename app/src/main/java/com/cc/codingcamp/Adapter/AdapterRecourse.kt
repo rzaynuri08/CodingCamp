@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.ProductItem
+import com.bumptech.glide.Glide
 
 class ProductAdapter(private val context: Context, private val productList: List<ProductItem>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
