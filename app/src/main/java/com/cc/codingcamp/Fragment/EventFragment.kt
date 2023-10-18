@@ -1,4 +1,4 @@
-package com.cc.codingcamp
+package com.cc.codingcamp.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.Adapter.EventAdapter
+import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
 import com.test.learnactivity.API.Service
 import retrofit2.Call
