@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, fragment)
+            .addToBackStack(null)
             .commit()
+    }
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()  // Kembali dari fragment lain ke dashboard
+        } else {
+            super.onBackPressed()  // Keluar dari aplikasi jika sudah di fragment dashboard
+        }
     }
 }
