@@ -6,6 +6,10 @@
     app:cardBackgroundColor="#ffffff"
     app:cardCornerRadius="5dp"
     android:layout_margin="8dp" >
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#00000000"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
