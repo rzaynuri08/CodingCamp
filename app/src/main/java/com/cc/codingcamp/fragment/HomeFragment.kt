@@ -1,4 +1,4 @@
-package com.cc.codingcamp.Fragment
+package com.cc.codingcamp.fragment
 
 import ProductAdapter
 import android.os.Bundle

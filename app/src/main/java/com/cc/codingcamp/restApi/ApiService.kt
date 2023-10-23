@@ -1,4 +1,4 @@
-package com.cc.codingcamp.API
+package com.cc.codingcamp.restApi
 
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.ResponseModel

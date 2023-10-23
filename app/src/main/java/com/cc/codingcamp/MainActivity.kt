@@ -3,9 +3,9 @@ package com.cc.codingcamp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.cc.codingcamp.Fragment.EventFragment
+import com.cc.codingcamp.fragment.EventFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.cc.codingcamp.Fragment.HomeFragment
+import com.cc.codingcamp.fragment.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {

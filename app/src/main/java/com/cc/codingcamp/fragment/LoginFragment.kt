@@ -1,4 +1,4 @@
-package com.cc.codingcamp.Fragment
+package com.cc.codingcamp.fragment
 
 import android.content.Intent
 import android.os.Bundle

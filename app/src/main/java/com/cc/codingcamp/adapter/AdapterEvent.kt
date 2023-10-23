@@ -1,4 +1,4 @@
-package com.cc.codingcamp.Adapter
+package com.cc.codingcamp.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
-import com.bumptech.glide.Glide
 
 class EventAdapter(private val context: Context, private val eventList: List<Event>) :
     RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
