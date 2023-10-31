@@ -134,6 +134,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         app:endIconMode="password_toggle"
+        app:helperText=""
         app:boxStrokeColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout5"

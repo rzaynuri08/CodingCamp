@@ -11,12 +11,14 @@ import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.Register
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.test.learnactivity.API.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
+@Suppress("DEPRECATION")
 class RegisterFragment : Fragment() {
     private lateinit var btnMasuk: Button
     private lateinit var btnDaftar: Button
@@ -30,30 +32,37 @@ class RegisterFragment : Fragment() {
         btnMasuk = view.findViewById(R.id.btn_signin)
         btnDaftar = view.findViewById(R.id.btn_register)
 
-//        btnMasuk.setOnClickListener {
-//            // Membuat instance LoginFragment
-//            val loginFragment = LoginFragment()
-//
-//            // Memulai transaksi fragment untuk mengganti fragment
-//            val transaction = requireFragmentManager().beginTransaction()
-//            transaction.replace(R.id.fragment_layout, loginFragment) // Ganti dengan ID container Anda
-//            transaction.commit()
-//        }
+        btnMasuk.setOnClickListener {
+            // Membuat instance LoginFragment
+            val loginFragment = LoginFragment()
+
+            // Memulai transaksi fragment untuk mengganti fragment
+            val transaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragment_layout, loginFragment) // Ganti dengan ID container Anda
+            transaction.commit()
+        }
 
         btnDaftar.setOnClickListener {
             // Dapatkan data dari input
             val username = view.findViewById<TextInputEditText>(R.id.txt_username).text.toString()
             val namaLengkap = view.findViewById<TextInputEditText>(R.id.txt_name).text.toString()
             val password = view.findViewById<TextInputEditText>(R.id.txt_password).text.toString()
+            val repassword = view.findViewById<TextInputEditText>(R.id.txt_repassword).text.toString()
             val noHp = view.findViewById<TextInputEditText>(R.id.txt_nohp).text.toString()
             val email = view.findViewById<TextInputEditText>(R.id.txt_email).text.toString()
 
-
-            // Membuat objek Register
-            val register = Register(username, namaLengkap, password, noHp, email)
-
-            // Memanggil fungsi untuk mendaftar (register)
-            registerUser(register)
+            if (password == repassword) {
+                if (isPasswordValid(password)) {
+                    val register = Register(username, namaLengkap, password, noHp, email)
+                    registerUser(register)
+                } else {
+                    // Tampilkan pesan peringatan pada helperText
+                    val passwordLayout = view.findViewById<TextInputLayout>(R.id.textInputLayout4)
+                    passwordLayout.helperText = "* Kata sandi harus memiliki setidaknya 8 karakter, mengandung huruf besar, dan mengandung angka."
+                }
+            } else {
+                showErrorToast("Kata sandi tidak sesuai")
+            }
         }
 
         return view
@@ -91,5 +100,12 @@ class RegisterFragment : Fragment() {
 
     private fun showErrorToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        // Periksa apakah kata sandi memenuhi persyaratan
+        val regex = Regex("^(?=.*[A-Z])(?=.*\\d).{8,}\$")
+
+        return regex.matches(password)
     }
 }

@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val productList = ArrayList<ProductItem>()
-        productList.add(ProductItem(R.drawable.card, "Belajar Konsep OOP Dalam Bahasa Java", "Rp. 120.000"))
+        productList.add(ProductItem(R.mipmap.ic_launcher, "Belajar Konsep OOP Dalam Bahasa Java", "Rp. 120.000"))
         productList.add(ProductItem(R.mipmap.ic_launcher, "Membuat ppp dengan Java", "Rp. 120.000"))
         productList.add(ProductItem(R.mipmap.ic_launcher, "Membuat ppp dengan Java", "Rp. 120.000"))
 
