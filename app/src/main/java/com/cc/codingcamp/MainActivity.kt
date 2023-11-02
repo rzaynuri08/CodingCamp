@@ -3,14 +3,17 @@ package com.cc.codingcamp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.cc.codingcamp.fragment.CourseFragment
 import com.cc.codingcamp.fragment.EventFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.cc.codingcamp.fragment.HomeFragment
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val dashboardFragment = HomeFragment()
     private val eventFragment = EventFragment()
+    private val courseFragment = CourseFragment()
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -20,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_event -> {
                 replaceFragment(eventFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_course -> {
+                replaceFragment(courseFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
