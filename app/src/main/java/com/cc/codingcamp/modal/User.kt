@@ -6,6 +6,6 @@ data class User(
     val nama_lengkap: String,
     val no_hp: String,
     val email: String,
-    val status: String,
+    val jenis_kelamin: String,
     val id_lvl: String
 )
