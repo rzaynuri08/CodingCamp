@@ -78,8 +78,6 @@
         android:layout_marginTop="44dp"
         android:gravity="center"
         app:boxStrokeColor="@android:color/white"
-        app:helperText="*harus diisi"
-        app:helperTextTextColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
@@ -115,6 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
+        app:prefixText="+62"
         app:boxStrokeColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3"

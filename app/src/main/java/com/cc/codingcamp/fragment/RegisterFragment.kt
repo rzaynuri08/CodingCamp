@@ -1,6 +1,8 @@
 package com.cc.codingcamp.fragment
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +15,7 @@ import com.cc.codingcamp.modal.Register
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.test.learnactivity.API.Service
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +34,33 @@ class RegisterFragment : Fragment() {
 
         btnMasuk = view.findViewById(R.id.btn_signin)
         btnDaftar = view.findViewById(R.id.btn_register)
+
+        val noHpEditText = view.findViewById<TextInputEditText>(R.id.txt_nohp)
+        noHpEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) {
+                val text = editable.toString()
+
+                if (text.startsWith("+62")) {
+                    // Jika diawali dengan +62, hapus karakter +62
+                    val filteredText = text.substring(3)
+                    noHpEditText.setText(filteredText)
+                    noHpEditText.setSelection(noHpEditText.text?.length ?: 0)
+                } else if (text.startsWith("0")) {
+                    // Jika diawali dengan 0, hapus karakter 0
+                    val filteredText = text.substring(1)
+                    noHpEditText.setText(filteredText)
+                    noHpEditText.setSelection(noHpEditText.text?.length ?: 0)
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // Tidak digunakan
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // Tidak digunakan
+            }
+        })
 
         btnMasuk.setOnClickListener {
             // Membuat instance LoginFragment
