@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -45,6 +46,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
 
     //Retrofit : interaksi API
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -59,6 +62,7 @@ dependencies {
 
     //Refresh halaman
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
 
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("androidx.fragment:fragment:1.3.6")
