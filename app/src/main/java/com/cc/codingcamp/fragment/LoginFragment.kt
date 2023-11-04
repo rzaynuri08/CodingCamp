@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.cc.codingcamp.MainActivity
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.User
-import com.test.learnactivity.API.Service
+import com.cc.codingcamp.restApi.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
