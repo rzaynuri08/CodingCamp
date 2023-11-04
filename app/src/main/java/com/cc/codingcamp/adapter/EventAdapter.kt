@@ -1,4 +1,3 @@
-package com.cc.codingcamp.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,24 +9,37 @@ import com.squareup.picasso.Picasso
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
 
-class EventAdapter(private val context: Context, private val eventList: List<Event>) :
+class EventAdapter(private val context: Context, var eventList: List<Event>) :
     RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
+    private lateinit var mListener: OnItemClickListener
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.data_event, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_event, parent, false)
         return EventViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = eventList[position]
 
-        // Menggunakan Picasso untuk memuat gambar dari URL ke ImageView
         Picasso.get().load(event.gambar).into(holder.gambarImageView)
 
         holder.judulEventTextView.text = event.judul_event
         holder.pelaksanaanTextView.text = event.pelaksanaan
         holder.lokasiTextView.text = event.lokasi
         holder.tanggalTextView.text = event.tanggal
+        holder.idEventTextView.text = event.id_event
+
+        holder.itemView.setOnClickListener {
+            mListener.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -40,5 +52,6 @@ class EventAdapter(private val context: Context, private val eventList: List<Eve
         val pelaksanaanTextView: TextView = itemView.findViewById(R.id.pelaksanaan)
         val lokasiTextView: TextView = itemView.findViewById(R.id.lokasi)
         val tanggalTextView: TextView = itemView.findViewById(R.id.tanggal)
+        val idEventTextView: TextView = itemView.findViewById(R.id.id_event)
     }
 }

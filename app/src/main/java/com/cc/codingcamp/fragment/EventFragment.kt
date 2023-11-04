@@ -1,21 +1,27 @@
 package com.cc.codingcamp.fragment
 
+import EventAdapter
+import android.content.Intent
+import android.icu.text.Transliterator
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.cc.codingcamp.adapter.EventAdapter
+import com.cc.codingcamp.CourseViewActivity
+import com.cc.codingcamp.EventdetailActivity
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
-import com.test.learnactivity.API.Service
+import com.cc.codingcamp.restApi.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.icu.text.Transliterator.Position as position
 
 class EventFragment : Fragment() {
     private lateinit var eventRecyclerView: RecyclerView
@@ -28,11 +34,11 @@ class EventFragment : Fragment() {
         eventRecyclerView = view.findViewById(R.id.eventRecyclerView)
         eventRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        eventAdapter = EventAdapter(requireContext(), emptyList())
+
         // SwipeRefreshLayout
         swipeRefreshLayout = view.findViewById(R.id.SwipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
-            // Aksi segar akan dipanggil saat pengguna menggeser untuk segar
-            // Mulai animasi segar
             swipeRefreshLayout.isRefreshing = true
 
             // Load data acara
@@ -46,6 +52,17 @@ class EventFragment : Fragment() {
 
         loadEventData() // Fungsi untuk memuat data acara
 
+        eventRecyclerView.adapter = eventAdapter
+        eventAdapter.setOnItemClickListener(object : EventAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val event = eventAdapter.eventList[position]
+                val intent = Intent(requireContext(), EventdetailActivity::class.java)
+                intent.putExtra("event_id", event.id_event)
+                Toast.makeText(requireContext(), "id event : ${event.id_event}", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
+        })
+
         return view
     }
 
@@ -57,8 +74,8 @@ class EventFragment : Fragment() {
                 if (response.isSuccessful) {
                     val eventList = response.body()
                     if (eventList != null) {
-                        eventAdapter = EventAdapter(requireContext(), eventList)
-                        eventRecyclerView.adapter = eventAdapter
+                        eventAdapter.eventList = eventList
+                        eventAdapter.notifyDataSetChanged()
                     } else {
                         // Tangani jika data null atau kosong
                     }
