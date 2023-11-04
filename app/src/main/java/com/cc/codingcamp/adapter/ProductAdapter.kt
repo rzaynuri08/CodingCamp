@@ -7,13 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.ProductItem
-import com.bumptech.glide.Glide
 
 class ProductAdapter(private val context: Context, private val productList: List<ProductItem>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.data_recourse, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_recourse, parent, false)
         return ProductViewHolder(view)
     }
 
