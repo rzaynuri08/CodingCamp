@@ -1,4 +1,4 @@
-package com.test.learnactivity.API
+package com.cc.codingcamp.restApi
 
 import com.cc.codingcamp.restApi.ApiService
 import com.google.gson.GsonBuilder
@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Service {
-    private const val BASE_URL = "https://www.codingcamp.my.id/api/" // Ganti dengan URL basis API
+    const val BASE_URL = "https://www.codingcamp.my.id/api/" // Ganti dengan URL basis API
 
     // Properti apiService yang bisa diakses dari luar objek Service
     val apiService: ApiService by lazy {

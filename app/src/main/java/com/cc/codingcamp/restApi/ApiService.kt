@@ -1,5 +1,6 @@
 package com.cc.codingcamp.restApi
 
+import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.Register
@@ -10,6 +11,7 @@ import com.cc.codingcamp.modal.User
 import retrofit2.http.POST
 import retrofit2.http.Body
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Query
 
 interface ApiService {
     // Definisikan endpoint untuk mengambil daftar pengguna
@@ -19,8 +21,14 @@ interface ApiService {
     @GET("dataevent.php") // Ganti dengan URL sesuai dengan API Anda
     fun getEvent(): Call<List<Event>>
 
-    @GET("datajenismodul.php") // Ganti dengan URL sesuai dengan API Anda
-    fun getCourse(): Call<List<JenisModul>>
+    @GET("dataevent.php?id_event=")
+    fun getEventDetail(@Query("id_event") idEvent: String?) : Call<List<Event>>
+
+    @GET("datajenismodul.php")
+    fun getJenisModul(): Call<List<JenisModul>>
+
+    @GET("datamodul.php?id_jenismodul=")
+    fun getCourseView(@Query("id_jenismodul") idJenisModul: String?) : Call<List<Course>>
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
