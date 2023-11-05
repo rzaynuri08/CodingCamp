@@ -2,7 +2,6 @@ package com.cc.codingcamp.fragment
 
 import EventAdapter
 import android.content.Intent
-import android.icu.text.Transliterator
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -13,15 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.cc.codingcamp.CourseViewActivity
 import com.cc.codingcamp.EventdetailActivity
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
-import com.cc.codingcamp.restApi.Service
+import com.cc.codingcamp.API.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import android.icu.text.Transliterator.Position as position
 
 class EventFragment : Fragment() {
     private lateinit var eventRecyclerView: RecyclerView

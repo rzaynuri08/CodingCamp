@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.adapter.CourseAdapter
 import com.cc.codingcamp.modal.Course
-import com.cc.codingcamp.restApi.Service
+import com.cc.codingcamp.API.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

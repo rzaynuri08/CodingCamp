@@ -1,4 +1,4 @@
-package com.cc.codingcamp.restApi
+package com.cc.codingcamp.API
 
 import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.Event
@@ -10,7 +10,6 @@ import retrofit2.http.GET
 import com.cc.codingcamp.modal.User
 import retrofit2.http.POST
 import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Query
 
 interface ApiService {

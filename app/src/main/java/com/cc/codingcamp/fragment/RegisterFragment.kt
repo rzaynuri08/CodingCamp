@@ -14,8 +14,7 @@ import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.Register
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.cc.codingcamp.restApi.Service
-import org.w3c.dom.Text
+import com.cc.codingcamp.API.Service
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

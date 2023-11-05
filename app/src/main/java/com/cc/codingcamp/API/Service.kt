@@ -1,6 +1,5 @@
-package com.cc.codingcamp.restApi
+package com.cc.codingcamp.API
 
-import com.cc.codingcamp.restApi.ApiService
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
