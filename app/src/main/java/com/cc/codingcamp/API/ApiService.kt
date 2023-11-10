@@ -17,6 +17,9 @@ interface ApiService {
     @GET("dataakun.php") // Ganti dengan URL sesuai dengan API Anda
     fun getUsers(): Call<List<User>>
 
+    @GET("dataakun.php?username=")
+    fun getSession(@Query("username") Userlog : String?): Call<List<User>>
+
     @GET("dataevent.php") // Ganti dengan URL sesuai dengan API Anda
     fun getEvent(): Call<List<Event>>
 
@@ -28,6 +31,12 @@ interface ApiService {
 
     @GET("datamodul.php?id_jenismodul=")
     fun getCourseView(@Query("id_jenismodul") idJenisModul: String?) : Call<List<Course>>
+
+    @GET("datamodul.php?id_modul=")
+    fun getCourseDetail(@Query("id_modul") idModul : String?) :Call<List<Course>>
+
+    @GET("datamodul.php")
+    fun Getproduct() : Call<List<Course>>
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
