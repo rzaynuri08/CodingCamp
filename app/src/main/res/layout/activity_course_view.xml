@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaeaea"
-    tools:context=".CourseViewActivity">
+    android:background="#EEF1F6"
+    tools:context=".UI.activity.CourseViewActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_title"

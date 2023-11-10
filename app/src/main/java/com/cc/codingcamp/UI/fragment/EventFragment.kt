@@ -1,4 +1,4 @@
-package com.cc.codingcamp.fragment
+package com.cc.codingcamp.UI.fragment
 
 import EventAdapter
 import android.content.Intent
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.cc.codingcamp.EventdetailActivity
+import com.cc.codingcamp.UI.activity.EventdetailActivity
 import com.cc.codingcamp.R
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.API.Service

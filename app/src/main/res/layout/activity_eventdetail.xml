@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaeaea"
-    tools:context=".EventdetailActivity">
+    android:background="#EEF1F6"
+    tools:context=".UI.activity.EventdetailActivity">
 
     <Button
         android:id="@+id/button2"
@@ -103,7 +103,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:textColor="#000000"
         android:fontFamily="@font/poppins_medium"
@@ -117,14 +117,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="67dp"
         android:layout_marginEnd="20dp"
         android:textColor="#000000"
         android:text="TextView"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/lokasi" />
+        app:layout_constraintTop_toBottomOf="@+id/tanggal" />
 
     <TextView
         android:id="@+id/keterangan"
@@ -138,5 +138,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pelaksanaan" />
+
+    <Button
+        android:id="@+id/btn_url"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#000000"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Daftar Disini"
+        android:textColor="#eaeaea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
