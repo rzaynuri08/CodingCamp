@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="170dp"
+    android:layout_width="155dp"
     android:layout_height="240dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -11,8 +11,8 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_height="195dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="15dp"
                 app:cardBackgroundColor="#ffffff"
                 app:cardElevation="5dp">
@@ -25,36 +25,36 @@
                     <ImageView
                         android:id="@+id/gambar"
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="100dp"
                         android:src="@mipmap/ic_launcher"
                         android:scaleType="centerCrop"/>
 
                     <TextView
                         android:id="@+id/judul"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Belajar konsep OOP Dalam bahasa java"
+                        android:layout_height="60dp"
+                        android:text="Belajar Android menggunakan Kotlin dasar"
                         android:fontFamily="@font/poppins_medium"
                         android:layout_marginTop="5sp"
                         android:layout_marginLeft="12sp"
                         android:layout_marginRight="12sp"
-                        android:textColor="#0a0a0a"
-                        android:autoSizeTextType="uniform"/>
-
+                        android:textColor="#0a0a0a"/>
                     <TextView
-                        android:id="@+id/harga"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rp. 120.000"
-                        android:fontFamily="@font/poppins_light"
-                        android:autoSizeTextType="uniform"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="#0a0a0a"
-                        android:layout_marginLeft="12sp"/>
-
-
+                        android:id="@+id/id_course"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"/>
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/harga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 120.000"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_light"
+                    android:layout_marginTop="165dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#0a0a0a"
+                    android:layout_marginLeft="12sp"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 </LinearLayout>
