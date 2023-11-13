@@ -75,10 +75,11 @@
                             android:layout_width="170dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
-                            android:backgroundTint="#5A65FF"
+                            android:backgroundTint="#ffffff"
                             android:fontFamily="@font/poppins_medium"
                             android:text="Check-In Sekarang"
-                            android:textColor="@color/cardview_light_background" />
+                            android:textColor="#000000"
+                            app:cornerRadius="6dp" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -120,14 +121,17 @@
                         android:layout_gravity="right"
                         android:layout_marginTop="100dp"
                         android:layout_marginRight="32dp">
+
                         <Button
+                            android:id="@+id/logout"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:backgroundTint="#ffffff"
-                            android:textColor="#000000"
                             android:fontFamily="@font/poppins_regular"
                             android:text="edit profil"
-                            android:textSize="15sp"/>
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            app:cornerRadius="6dp" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"

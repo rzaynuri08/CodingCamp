@@ -2,7 +2,8 @@ package com.cc.codingcamp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.cc.codingcamp.fragment.LoginFragment
+import com.cc.codingcamp.R
+import com.cc.codingcamp.UI.fragment.LoginFragment
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

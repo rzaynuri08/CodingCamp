@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Detail produk"
+        android:id="@+id/detail"
+        app:itemBackground="@drawable/selected_item_background"/>
+
+    <item android:title="Preview Bab"
+        android:id="@+id/lainnya"
+        app:itemBackground="@drawable/selected_item_background"/>
+    />
+</menu>

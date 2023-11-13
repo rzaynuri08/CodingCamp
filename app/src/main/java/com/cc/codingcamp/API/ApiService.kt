@@ -3,8 +3,11 @@ package com.cc.codingcamp.API
 import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.JenisModul
+import com.cc.codingcamp.modal.MainPreview
+import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.modal.Register
 import com.cc.codingcamp.modal.ResponseModel
+import com.cc.codingcamp.modal.SubPreview
 import retrofit2.Call
 import retrofit2.http.GET
 import com.cc.codingcamp.modal.User
@@ -29,14 +32,23 @@ interface ApiService {
     @GET("datajenismodul.php")
     fun getJenisModul(): Call<List<JenisModul>>
 
+    @GET("datamodul.php")
+    fun Getproduct() : Call<List<Course>>
+
     @GET("datamodul.php?id_jenismodul=")
     fun getCourseView(@Query("id_jenismodul") idJenisModul: String?) : Call<List<Course>>
 
     @GET("datamodul.php?id_modul=")
     fun getCourseDetail(@Query("id_modul") idModul : String?) :Call<List<Course>>
 
-    @GET("datamodul.php")
-    fun Getproduct() : Call<List<Course>>
+    @GET("datababmodul.php?id_modul=")
+    fun getParentPreview(@Query("id_modul") idModul: String?) : Call<List<MainPreview>>
+
+    @GET("datasubbabmodul.php?id_bab=")
+    fun getSubPreview(@Query("id_bab") idBab: String?) : Call<List<SubPreview>>
+
+    @GET("datamoduldimiliki.php")
+    fun getModulDimiliki(@Query("username")Userlog: String?) : Call<List<ModulDimiliki>>
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>

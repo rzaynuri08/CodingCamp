@@ -1,4 +1,4 @@
-package com.cc.codingcamp.fragment
+package com.cc.codingcamp.UI.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -54,6 +54,7 @@ class LoginFragment : Fragment() {
                         val user = users?.find { it.username == username && it.password == password }
                         if (user != null) {
                             val intent = Intent(requireContext(), MainActivity::class.java)
+                            intent.putExtra("username", user.username)
                             startActivity(intent)
                             showSuccessToast("Login berhasil. Selamat datang, ${user.nama_lengkap}!")
                         } else {

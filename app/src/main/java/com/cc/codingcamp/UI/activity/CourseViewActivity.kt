@@ -1,5 +1,6 @@
-package com.cc.codingcamp
+package com.cc.codingcamp.UI.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.adapter.CourseAdapter
 import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.API.Service
+import com.cc.codingcamp.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,6 +42,18 @@ class CourseViewActivity : AppCompatActivity() {
 
         // Set adapter ke RecyclerView
         recyclerView.adapter = courseAdapter
+
+        courseAdapter.setOnItemClickListener(object : CourseAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                // Handle klik item di sini
+                val selectedCourse = courseAdapter.courseList[position]
+
+                // Misalnya, Anda ingin membuka detail kursus saat item diklik
+                val intent = Intent(this@CourseViewActivity, CoursedetailActivity::class.java)
+                intent.putExtra("course_id", selectedCourse.id_modul)
+                startActivity(intent)
+            }
+        })
 
         // Ambil data kursus dari API
         fetchCourseData(idJenisModul)

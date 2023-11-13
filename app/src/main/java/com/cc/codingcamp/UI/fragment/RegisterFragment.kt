@@ -1,4 +1,4 @@
-package com.cc.codingcamp.fragment
+package com.cc.codingcamp.UI.fragment
 
 import android.os.Bundle
 import android.text.Editable

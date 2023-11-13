@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.cc.codingcamp.API.Service
 import com.cc.codingcamp.R
 import com.cc.codingcamp.UI.fragment.DetailproductFragment
+import com.cc.codingcamp.UI.fragment.ReviewproductFragment
 import com.cc.codingcamp.modal.Course
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
@@ -42,8 +43,17 @@ class CoursedetailActivity : AppCompatActivity() {
                     }
                     return@setOnNavigationItemSelectedListener true
                 }
-
-
+                R.id.lainnya -> {
+                    if (isDetailFragmentActive) {
+                        val ReviewproductFragment = ReviewproductFragment()
+                        val bundle = Bundle()
+                        bundle.putString("idJenisModul", courseId)
+                        ReviewproductFragment.arguments = bundle
+                        replaceFragment(ReviewproductFragment)
+                        isDetailFragmentActive = false
+                    }
+                    return@setOnNavigationItemSelectedListener true
+                }
                 else -> false
             }
         }

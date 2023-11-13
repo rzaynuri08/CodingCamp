@@ -7,5 +7,6 @@ data class User(
     val no_hp: String,
     val email: String,
     val jenis_kelamin: String,
+    val foto_profil: String,
     val id_lvl: String
 )

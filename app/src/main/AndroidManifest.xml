@@ -15,18 +15,19 @@
         android:theme="@style/Theme.CodingCamp"
         tools:targetApi="31">
         <activity
-            android:name=".CourseViewActivity"
+            android:name=".UI.activity.ModuldetailActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailCoursActivity"
-            android:exported="false"
-            android:label="@string/title_activity_detail_cours"
-            android:theme="@style/Theme.CodingCamp" />
+            android:name=".UI.activity.CoursedetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.activity.CourseViewActivity"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".EventdetailActivity"
+            android:name=".UI.activity.EventdetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

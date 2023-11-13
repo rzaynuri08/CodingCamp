@@ -6,5 +6,6 @@ data class Event(
     val judul_event: String,
     val pelaksanaan: String,
     val lokasi: String,
-    val tanggal: String
+    val tanggal: String,
+    val link_pendaftaran :String
 )

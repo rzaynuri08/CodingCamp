@@ -48,6 +48,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("androidx.recyclerview:recyclerview:1.3.2")
     implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
+    implementation ("androidx.fragment:fragment:1.3.6")
 
     //Retrofit : interaksi API
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -64,8 +65,9 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
 
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
-    implementation ("androidx.fragment:fragment:1.3.6")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

@@ -9,10 +9,10 @@
     <item android:title="Course"
         android:id="@+id/nav_course"
         android:icon="@drawable/baseline_menu_book_24"/>
-    <item android:title="Social"
-        android:id="@+id/nav_social"
-        android:icon="@drawable/baseline_people_24"/>
     <item android:title="Challenge"
         android:id="@+id/nav_challenge"
         android:icon="@drawable/baseline_lightbulb_24"/>
+    <item android:title="Profile"
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/baseline_person_24"/>
 </menu>
