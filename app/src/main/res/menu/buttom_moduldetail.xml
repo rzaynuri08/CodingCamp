@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Modul Bab"
+        android:id="@+id/modul"
+        app:itemBackground="@drawable/selected_item_background"/>
+
+    <item android:title="Quiz"
+        android:id="@+id/quiz"
+        app:itemBackground="@drawable/selected_item_background"/>
+    />
+</menu>
