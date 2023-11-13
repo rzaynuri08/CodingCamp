@@ -14,6 +14,15 @@ import com.cc.codingcamp.R
 class CourseAdapter(private val context: Context, var courseList: List<Course>) :
     RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
 
+    private lateinit var mListener: OnItemClickListener
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_course, parent, false)
         return CourseViewHolder(view)
@@ -24,9 +33,14 @@ class CourseAdapter(private val context: Context, var courseList: List<Course>) 
 
         holder.judulCourseTextView.text = course.judul
         holder.hargaCourseTextView.text = "Rp. ${course.harga}"
+        holder.idCourseTextView.text = course.id_modul
 
         // Menggunakan Picasso untuk memuat gambar dari URL ke ImageView
         Picasso.get().load(course.gambar).into(holder.gambarCourseImageView)
+
+        holder.itemView.setOnClickListener {
+            mListener.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -37,5 +51,6 @@ class CourseAdapter(private val context: Context, var courseList: List<Course>) 
         val judulCourseTextView: TextView = itemView.findViewById(R.id.txt_judulcourse)
         val hargaCourseTextView: TextView = itemView.findViewById(R.id.txt_hargacourse)
         val gambarCourseImageView: ImageView = itemView.findViewById(R.id.img_gambarcourse)
+        val idCourseTextView: TextView = itemView.findViewById(R.id.txt_idcourseview)
     }
 }
