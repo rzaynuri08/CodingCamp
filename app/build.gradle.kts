@@ -65,6 +65,7 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
 
+    //Coroutines Kotlin
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
