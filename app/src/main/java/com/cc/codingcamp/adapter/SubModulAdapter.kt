@@ -8,16 +8,13 @@ import com.cc.codingcamp.R
 import com.cc.codingcamp.databinding.ItemSubmodulBinding
 import com.cc.codingcamp.modal.SubPreview
 
-class SubModulAdapter(private val subPreviews: List<SubPreview>) : RecyclerView.Adapter<SubModulAdapter.ViewHolder>() {
+class SubModulAdapter(private val subPreviews: List<SubPreview>) :
+    RecyclerView.Adapter<SubModulAdapter.ViewHolder>() {
 
-    private lateinit var mListener: OnItemClickListener
+    private lateinit var onItemClickListener: (SubPreview) -> Unit
 
-    interface OnItemClickListener {
-        fun onItemClick(subPreview: SubPreview)
-    }
-
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        mListener = listener
+    fun setOnItemClickListener(listener: (SubPreview) -> Unit) {
+        onItemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +28,9 @@ class SubModulAdapter(private val subPreviews: List<SubPreview>) : RecyclerView.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(subPreviews[position])
+        holder.itemView.setOnClickListener {
+            onItemClickListener(subPreviews[position])
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,11 +40,6 @@ class SubModulAdapter(private val subPreviews: List<SubPreview>) : RecyclerView.
             binding.idSubBab.text = subPreview.id_subbab
             binding.judulSubItem.text = subPreview.nama_subbab
             binding.idBabInSub.text = subPreview.id_bab
-
-            // Set click listener
-            itemView.setOnClickListener {
-                mListener.onItemClick(subPreview)
-            }
         }
     }
 }

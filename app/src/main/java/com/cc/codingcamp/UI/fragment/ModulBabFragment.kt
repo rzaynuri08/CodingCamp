@@ -1,5 +1,6 @@
 package com.cc.codingcamp.UI.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,8 @@ import com.cc.codingcamp.adapter.ExpandableModulAdapter
 import com.cc.codingcamp.modal.MainPreview
 import com.cc.codingcamp.modal.SubPreview
 import com.cc.codingcamp.API.Service
+import com.cc.codingcamp.UI.activity.MateriActivity
+import com.cc.codingcamp.adapter.SubModulAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -32,6 +35,12 @@ class ModulBabFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = ExpandableModulAdapter(emptyList())
         recyclerView.adapter = adapter
+
+        adapter.setOnSubItemClickListener { subPreview ->
+            val intent = Intent(requireContext(), MateriActivity::class.java)
+            intent.putExtra("id_subbab", subPreview.id_subbab)
+            startActivity(intent)
+        }
 
         val idModul = arguments?.getString("idJenisModul")
         if (idModul != null) {

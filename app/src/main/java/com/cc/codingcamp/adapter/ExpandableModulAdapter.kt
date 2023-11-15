@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.R
 import com.cc.codingcamp.databinding.ItemParentmodulBinding
 import com.cc.codingcamp.modal.MainPreview
+import com.cc.codingcamp.modal.SubPreview
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,6 +17,7 @@ class ExpandableModulAdapter(private var mainPreviews: List<MainPreview>) :
     RecyclerView.Adapter<ExpandableModulAdapter.ViewHolder>() {
 
     private var expandedPosition: Int = RecyclerView.NO_POSITION
+    private lateinit var onSubItemClickListener: (SubPreview) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -48,7 +50,11 @@ class ExpandableModulAdapter(private var mainPreviews: List<MainPreview>) :
 
             if (mainPreview.subItemModels.isNotEmpty()) {
                 CoroutineScope(Dispatchers.Main).launch {
-                    val subPreviewAdapter = SubPreviewAdapter(mainPreview.subItemModels)
+                    val subPreviewAdapter = SubModulAdapter(mainPreview.subItemModels)
+                    subPreviewAdapter.setOnItemClickListener { subPreview ->
+                        // Callback to the activity or fragment
+                        onSubItemClickListener(subPreview)
+                    }
                     binding.SubItem.apply {
                         layoutManager = LinearLayoutManager(context)
                         adapter = subPreviewAdapter
@@ -61,5 +67,10 @@ class ExpandableModulAdapter(private var mainPreviews: List<MainPreview>) :
     fun updateData(newData: List<MainPreview>) {
         mainPreviews = newData
         notifyDataSetChanged()
+    }
+
+    // Function to set the callback for sub-item clicks
+    fun setOnSubItemClickListener(listener: (SubPreview) -> Unit) {
+        this.onSubItemClickListener = listener
     }
 }
