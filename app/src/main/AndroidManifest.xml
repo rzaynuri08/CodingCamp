@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CodingCamp"
         tools:targetApi="31">
         <activity
+            android:name=".UI.activity.MateriActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.activity.ModuldetailActivity"
             android:exported="false" />
         <activity
