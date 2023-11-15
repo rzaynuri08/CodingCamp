@@ -4,6 +4,7 @@ import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.MainPreview
+import com.cc.codingcamp.modal.Materi
 import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.modal.Register
 import com.cc.codingcamp.modal.ResponseModel
@@ -49,6 +50,9 @@ interface ApiService {
 
     @GET("datamoduldimiliki.php")
     fun getModulDimiliki(@Query("username")Userlog: String?) : Call<List<ModulDimiliki>>
+
+    @GET("datamaterimodul.php")
+    fun getMateri(@Query("id_subbab")idSubBab: String?) : Call<List<Materi>>
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
