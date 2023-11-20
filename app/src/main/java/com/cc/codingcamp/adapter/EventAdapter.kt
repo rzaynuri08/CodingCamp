@@ -33,14 +33,22 @@ class EventAdapter(private val context: Context, var eventList: List<Event>) :
 
         holder.judulEventTextView.text = event.judul_event
         holder.pelaksanaanTextView.text = event.pelaksanaan
-        holder.lokasiTextView.text = event.lokasi
-        holder.tanggalTextView.text = event.tanggal
+
+        // Truncate "lokasi" text to a maximum of 40 characters
+        val truncatedLokasi = if (event.lokasi.length > 40) {
+            event.lokasi.substring(0, 40) + "..."
+        } else {
+            event.lokasi
+        }
+        holder.lokasiTextView.text = truncatedLokasi
+
         holder.idEventTextView.text = event.id_event
 
         holder.itemView.setOnClickListener {
             mListener.onItemClick(position)
         }
     }
+
 
     override fun getItemCount(): Int {
         return eventList.size
@@ -51,7 +59,6 @@ class EventAdapter(private val context: Context, var eventList: List<Event>) :
         val judulEventTextView: TextView = itemView.findViewById(R.id.judul_event)
         val pelaksanaanTextView: TextView = itemView.findViewById(R.id.pelaksanaan)
         val lokasiTextView: TextView = itemView.findViewById(R.id.lokasi)
-        val tanggalTextView: TextView = itemView.findViewById(R.id.tanggal)
         val idEventTextView: TextView = itemView.findViewById(R.id.id_event)
     }
 }

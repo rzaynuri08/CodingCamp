@@ -24,6 +24,7 @@ class EventdetailActivity : AppCompatActivity() {
     private lateinit var pelaksanaanTextView: TextView
     private lateinit var lokasiTextView: TextView
     private lateinit var tanggalTextView: TextView
+    private lateinit var keteranganTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,7 @@ class EventdetailActivity : AppCompatActivity() {
         pelaksanaanTextView = findViewById(R.id.pelaksanaan)
         lokasiTextView = findViewById(R.id.lokasi)
         tanggalTextView = findViewById(R.id.tanggal)
+        keteranganTextView = findViewById(R.id.keterangan)
 
         btnUrl = findViewById(R.id.btn_url)
         btnUrl.setOnClickListener {
@@ -71,6 +73,7 @@ class EventdetailActivity : AppCompatActivity() {
                         pelaksanaanTextView.text = event.pelaksanaan
                         lokasiTextView.text = event.lokasi
                         tanggalTextView.text = event.tanggal
+                        keteranganTextView.text = event.keterangan
                         url = event.link_pendaftaran
                     } else {
                         // Handle if the data is null or empty
