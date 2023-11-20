@@ -1,5 +1,6 @@
 package com.cc.codingcamp.UI.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -28,15 +29,13 @@ class HomeFragment : Fragment() {
     private lateinit var productAdapter: ProductAdapter
     private lateinit var userprofile: TextView
     private lateinit var fotoProfile: ImageView
-    private lateinit var SharedPreferences : SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        val Userlog = arguments?.getString("username")
 
         userprofile = view.findViewById(R.id.txt_homeusername)
         fotoProfile = view.findViewById(R.id.txt_homefotoprofil)
@@ -59,7 +58,7 @@ class HomeFragment : Fragment() {
         })
 
         loadProductData()
-        fecthUserData(Userlog)
+        fetchUserData()
 
         return view
     }
@@ -76,39 +75,43 @@ class HomeFragment : Fragment() {
                         productAdapter.courseList = limitedCourseList
                         productAdapter.notifyDataSetChanged()
                     } else {
-                        // Tangani jika data null atau kosong
+                        // Handle if data is null or empty
                     }
                 } else {
-                    // Tangani kesalahan respons dari API (misalnya respons tidak sukses)
+                    // Handle API response errors (e.g., unsuccessful response)
                 }
             }
+
             override fun onFailure(call: Call<List<Course>>, t: Throwable) {
-                // Tangani kesalahan koneksi atau kesalahan lainnya
+                // Handle connection errors or other errors
             }
         })
     }
 
-    private fun fecthUserData(Userlog: String?) {
+    private fun fetchUserData() {
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val userLog = sharedPreferences.getString("username", "")
+
         val apiService = Service.apiService
-        apiService.getSession(Userlog).enqueue(object : Callback<List<User>> {
+        apiService.getSession(userLog).enqueue(object : Callback<List<User>> {
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                 if (response.isSuccessful) {
                     val userList = response.body()
                     if (userList != null && userList.isNotEmpty()) {
-                        // Pilih item pertama untuk ditampilkan
+                        // Select the first item to display
                         val user = userList[0]
                         userprofile.text = user.nama_lengkap
                         Picasso.get().load(user.foto_profil).into(fotoProfile)
                     } else {
-                        Toast.makeText(requireContext(), "$Userlog", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    // Tangani kesalahan respons dari API (contohnya, respons tidak berhasil)
+                    // Handle API response errors (e.g., unsuccessful response)
                 }
             }
 
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                // Tangani kesalahan koneksi atau kesalahan lainnya
+                // Handle connection errors or other errors
             }
         })
     }

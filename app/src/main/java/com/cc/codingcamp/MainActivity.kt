@@ -22,10 +22,6 @@ class MainActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.nav_dashboard -> {
-                val Userlog = intent.getStringExtra("username")
-                val bundle = Bundle()
-                bundle.putString("username", Userlog)
-                dashboardFragment.arguments = bundle
                 replaceFragment(dashboardFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -34,10 +30,6 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.nav_course -> {
-                val Userlog = intent.getStringExtra("username")
-                val bundle = Bundle()
-                bundle.putString("username", Userlog)
-                courseFragment.arguments = bundle  // Corrected this line
                 replaceFragment(courseFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -48,11 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val Userlog = intent.getStringExtra("username")
-        val bundle = Bundle()
-        bundle.putString("username", Userlog)
-        dashboardFragment.arguments = bundle
 
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)

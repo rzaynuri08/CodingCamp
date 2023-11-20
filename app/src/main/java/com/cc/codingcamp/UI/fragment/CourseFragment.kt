@@ -1,14 +1,14 @@
 package com.cc.codingcamp.UI.fragment
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +19,6 @@ import com.cc.codingcamp.adapter.ModuldimilikiAdapter
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.API.Service
-import com.cc.codingcamp.UI.activity.CoursedetailActivity
 import com.cc.codingcamp.UI.activity.ModuldetailActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,6 +31,7 @@ class CourseFragment : Fragment() {
 
     private lateinit var recyclerViewModulDimiliki: RecyclerView
     private lateinit var moduldimilikiAdapter: ModuldimilikiAdapter
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,6 +70,8 @@ class CourseFragment : Fragment() {
             }
         })
 
+        val userLog = fetchUserData()
+
         jenisModulAdapter.setOnItemClickListener(object : JenisModulAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val jenisModul = jenisModulAdapter.jenisModulList[position]
@@ -87,11 +89,10 @@ class CourseFragment : Fragment() {
             }
         })
 
-        val Userlog = arguments?.getString("username")
-
         // Inisialisasi dan atur RecyclerView untuk Modul Dimiliki
         recyclerViewModulDimiliki = view.findViewById(R.id.recyclerViewModulDimiliki)
-        recyclerViewModulDimiliki.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewModulDimiliki.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         moduldimilikiAdapter = ModuldimilikiAdapter(requireContext(), emptyList())
         recyclerViewModulDimiliki.adapter = moduldimilikiAdapter
 
@@ -106,15 +107,20 @@ class CourseFragment : Fragment() {
             }
         })
 
-        loadModulData(Userlog)
+        loadModulData(userLog)
 
         return view
     }
 
-    private fun loadModulData(Userlog : String?) {
+    private fun fetchUserData(): String? {
+        sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("username", "")
+    }
+
+    private fun loadModulData(userLog: String?) {
         val apiServiceModul = Service.apiService
 
-        apiServiceModul.getModulDimiliki(Userlog).enqueue(object : Callback<List<ModulDimiliki>> {
+        apiServiceModul.getModulDimiliki(userLog).enqueue(object : Callback<List<ModulDimiliki>> {
             override fun onResponse(
                 call: Call<List<ModulDimiliki>>,
                 response: Response<List<ModulDimiliki>>
