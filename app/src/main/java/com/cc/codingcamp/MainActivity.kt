@@ -10,12 +10,14 @@ import com.cc.codingcamp.UI.fragment.CourseFragment
 import com.cc.codingcamp.UI.fragment.EventFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.cc.codingcamp.UI.fragment.HomeFragment
+import com.cc.codingcamp.UI.fragment.ProfileFragment
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val dashboardFragment = HomeFragment()
     private val eventFragment = EventFragment()
     private val courseFragment = CourseFragment()
+    private val profileFragment = ProfileFragment()
 
     private var doubleBackToExitPressedOnce = false
 
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_course -> {
                 replaceFragment(courseFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_profile -> {
+                replaceFragment(profileFragment)
                 return@OnNavigationItemSelectedListener true
             }
         }
