@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Service {
-    const val BASE_URL = "https://www.codingcamp.my.id/api/" // Ganti dengan URL basis API
+    const val BASE_URL = "https://apicodingcamp.000webhostapp.com/api/" // Ganti dengan URL basis API
 
     // Properti apiService yang bisa diakses dari luar objek Service
     val apiService: ApiService by lazy {
