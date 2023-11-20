@@ -57,7 +57,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewModulDimiliki"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="175dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="12dp"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="Jenis Course"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#000000"/>
