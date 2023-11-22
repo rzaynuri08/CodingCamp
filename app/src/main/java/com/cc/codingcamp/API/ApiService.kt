@@ -5,10 +5,12 @@ import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.MainPreview
 import com.cc.codingcamp.modal.Materi
+import com.cc.codingcamp.modal.MetodePembayaran
 import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.modal.Register
 import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.SubPreview
+import com.cc.codingcamp.modal.Transaction
 import retrofit2.Call
 import retrofit2.http.GET
 import com.cc.codingcamp.modal.User
@@ -17,7 +19,6 @@ import retrofit2.http.Body
 import retrofit2.http.Query
 
 interface ApiService {
-    // Definisikan endpoint untuk mengambil daftar pengguna
     @GET("dataakun.php") // Ganti dengan URL sesuai dengan API Anda
     fun getUsers(): Call<List<User>>
 
@@ -35,6 +36,9 @@ interface ApiService {
 
     @GET("datamodul.php")
     fun Getproduct() : Call<List<Course>>
+
+    @GET("datametodepembayaran.php")
+    fun getMetodePembayaran() : Call<List<MetodePembayaran>>
 
     @GET("datamodul.php?id_jenismodul=")
     fun getCourseView(@Query("id_jenismodul") idJenisModul: String?) : Call<List<Course>>
@@ -56,4 +60,7 @@ interface ApiService {
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
+
+    @POST("transaksimodul.php")
+    fun Transaction (@Body transaksi: Transaction): Call<ResponseModel>
 }
