@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,9 +29,9 @@ class CourseFragment : Fragment() {
 
     private lateinit var recyclerViewJenisModul: RecyclerView
     private lateinit var jenisModulAdapter: JenisModulAdapter
-
     private lateinit var recyclerViewModulDimiliki: RecyclerView
     private lateinit var moduldimilikiAdapter: ModuldimilikiAdapter
+    private lateinit var btnTransaksi: ImageButton
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
@@ -44,6 +45,7 @@ class CourseFragment : Fragment() {
         recyclerViewJenisModul.layoutManager = GridLayoutManager(requireContext(), 3)
         jenisModulAdapter = JenisModulAdapter(requireContext(), emptyList())
         recyclerViewJenisModul.adapter = jenisModulAdapter
+        btnTransaksi = view.findViewById(R.id.btn_allTransaksi)
 
         // Panggil API untuk mendapatkan data JenisModul
         val apiServiceJenisModul = Service.apiService
@@ -106,6 +108,10 @@ class CourseFragment : Fragment() {
                 startActivity(intent)
             }
         })
+
+        btnTransaksi.setOnClickListener{
+
+        }
 
         loadModulData(userLog)
 
