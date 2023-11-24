@@ -1,6 +1,7 @@
 package com.cc.codingcamp.UI.activity
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -11,7 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.cc.codingcamp.API.Service
 import com.cc.codingcamp.R
-import com.cc.codingcamp.UI.fragment.MetodepembayaranFragment
+import com.cc.codingcamp.UI.fragment.dialog.MetodepembayaranDialog
 import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.Transaction
@@ -20,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TransactionActivity : AppCompatActivity(), MetodepembayaranFragment.MetodePembayaranClickListener {
+class TransactionActivity : AppCompatActivity(), MetodepembayaranDialog.MetodePembayaranClickListener {
 
     private lateinit var switchDiscount: Switch
     private lateinit var txtDiskon: TextView
@@ -96,7 +97,7 @@ class TransactionActivity : AppCompatActivity(), MetodepembayaranFragment.Metode
         }
 
         btnPembayaran.setOnClickListener {
-            val dialogFragment = MetodepembayaranFragment()
+            val dialogFragment = MetodepembayaranDialog()
             dialogFragment.show(supportFragmentManager, "MetodePembayaranDialogFragment")
         }
     }
@@ -107,8 +108,18 @@ class TransactionActivity : AppCompatActivity(), MetodepembayaranFragment.Metode
         apiService.Transaction(transaksi).enqueue(object : Callback<ResponseModel> {
             override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@TransactionActivity, "Transaction successful!", Toast.LENGTH_SHORT).show()
                     // Handle success, e.g., navigate to a different activity
+                    val responseModel = response.body()
+
+                    if (responseModel != null) {
+                        val intent = Intent(this@TransactionActivity, PaymentActivity::class.java)
+                        intent.putExtra("idTransaksi", responseModel.message)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this@TransactionActivity, "Tidak mendapatkan id", Toast.LENGTH_SHORT).show()
+                    }
+
                 } else {
                     Toast.makeText(this@TransactionActivity, "Transaction failed. Please try again.", Toast.LENGTH_SHORT).show()
                     // Handle failure

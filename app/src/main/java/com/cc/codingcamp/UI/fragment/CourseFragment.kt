@@ -20,6 +20,7 @@ import com.cc.codingcamp.adapter.ModuldimilikiAdapter
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.API.Service
+import com.cc.codingcamp.UI.activity.PaymentActivity
 import com.cc.codingcamp.UI.activity.ModuldetailActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -110,7 +111,8 @@ class CourseFragment : Fragment() {
         })
 
         btnTransaksi.setOnClickListener{
-
+            val intent = Intent(requireContext(), PaymentActivity::class.java)
+            startActivity(intent)
         }
 
         loadModulData(userLog)

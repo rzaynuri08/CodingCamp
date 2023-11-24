@@ -3,22 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
+    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:padding="10dp"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/txt_idchallenge"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="7dp"
+                android:padding="10dp"
                 android:orientation="horizontal">
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -28,8 +33,9 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:padding="3dp">
                         <TextView
+                            android:id="@+id/txt_jenisbahasachallenge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#FFFFFF"
@@ -48,8 +54,9 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:padding="3dp">
                         <TextView
+                            android:id="@+id/txt_jenislevelchallenge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#FFFFFF"
@@ -63,17 +70,47 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="7dp">
+                android:padding="10dp">
                 <TextView
+                    android:id="@+id/txt_soalchallenge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000000"
                     android:text="Bagaimana caranya membuat ?"
                     android:fontFamily="@font/poppins_medium"/>
             </LinearLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="7dp">
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/txt_koindidapatkan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_koindidapatkan"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/dollarcoin_96px"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView10"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

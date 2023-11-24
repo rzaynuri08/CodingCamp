@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.cc.codingcamp.UI.fragment.ChallengeFragment
 import com.cc.codingcamp.UI.fragment.CourseFragment
 import com.cc.codingcamp.UI.fragment.EventFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val eventFragment = EventFragment()
     private val courseFragment = CourseFragment()
     private val profileFragment = ProfileFragment()
+    private val challengeFragment = ChallengeFragment()
 
     private var doubleBackToExitPressedOnce = false
 
@@ -33,6 +35,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_course -> {
                 replaceFragment(courseFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.nav_challenge -> {
+                replaceFragment(challengeFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.nav_profile -> {

@@ -1,4 +1,4 @@
-package com.cc.codingcamp.UI.fragment
+package com.cc.codingcamp.UI.fragment.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MetodepembayaranFragment : DialogFragment() {
+class MetodepembayaranDialog : DialogFragment() {
 
     interface MetodePembayaranClickListener {
         fun onMetodePembayaranClicked(idPembayaran: String, namaPembayaran: String, icon: String)
@@ -29,7 +29,7 @@ class MetodepembayaranFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_metodepembayaran, container, false)
+        val view = inflater.inflate(R.layout.dialog_metodepembayaran, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerViewMetodePembayaran)
         recyclerView.layoutManager = LinearLayoutManager(activity)
