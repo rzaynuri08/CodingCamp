@@ -54,6 +54,12 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    //Okhttp: interaksi API
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
+
+    //airbnb: load lottie animation json
+    implementation ("com.airbnb.android:lottie:6.2.0")
+
     //Load foto dari API
     implementation ("com.squareup.picasso:picasso:2.71828")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
