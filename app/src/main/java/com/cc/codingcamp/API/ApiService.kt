@@ -1,12 +1,14 @@
 package com.cc.codingcamp.API
 
 import com.cc.codingcamp.modal.Course
+import com.cc.codingcamp.modal.DataTransaksi
 import com.cc.codingcamp.modal.Event
 import com.cc.codingcamp.modal.JenisModul
 import com.cc.codingcamp.modal.MainPreview
 import com.cc.codingcamp.modal.Materi
 import com.cc.codingcamp.modal.MetodePembayaran
 import com.cc.codingcamp.modal.ModulDimiliki
+import com.cc.codingcamp.modal.Payment
 import com.cc.codingcamp.modal.Register
 import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.SubPreview
@@ -14,8 +16,13 @@ import com.cc.codingcamp.modal.Transaction
 import retrofit2.Call
 import retrofit2.http.GET
 import com.cc.codingcamp.modal.User
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.http.POST
 import retrofit2.http.Body
+import retrofit2.http.Multipart
+import retrofit2.http.Part
 import retrofit2.http.Query
 
 interface ApiService {
@@ -58,9 +65,20 @@ interface ApiService {
     @GET("datamaterimodul.php")
     fun getMateri(@Query("id_subbab")idSubBab: String?) : Call<List<Materi>>
 
+    @GET("detailtransaksi.php")
+    fun getDataPayment(@Query("id_transaksi")idTransaksi: String?): Call<List<Payment>>
+
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
 
     @POST("transaksimodul.php")
     fun Transaction (@Body transaksi: Transaction): Call<ResponseModel>
+
+    @Multipart
+    @POST("uploadbukti.php") // Ganti dengan endpoint sesuai API Anda
+    fun uploadImage(
+        @Part bukti_pembayaran: MultipartBody.Part,
+        @Part("id_transaksi") idTransaksi: RequestBody
+    ): Call<ResponseBody>
+
 }
