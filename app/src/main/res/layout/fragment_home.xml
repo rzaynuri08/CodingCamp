@@ -59,22 +59,31 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_height="170dp"
+                        android:layout_marginTop="55dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:fontFamily="@font/poppins_light"
+                            android:fontFamily="@font/poppins_medium"
                             android:text="Check-in Harian : Klik button untuk mendapatkan koin"
                             android:textColor="#ffffff" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/coin"/>
 
                         <Button
                             android:layout_width="170dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:backgroundTint="#ffffff"
                             android:fontFamily="@font/poppins_medium"
                             android:text="Check-In Sekarang"

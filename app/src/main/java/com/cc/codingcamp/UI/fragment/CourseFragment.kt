@@ -22,6 +22,7 @@ import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.API.Service
 import com.cc.codingcamp.UI.activity.PaymentActivity
 import com.cc.codingcamp.UI.activity.ModuldetailActivity
+import com.cc.codingcamp.UI.activity.Riwayattransaksi_Activity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -111,7 +112,7 @@ class CourseFragment : Fragment() {
         })
 
         btnTransaksi.setOnClickListener{
-            val intent = Intent(requireContext(), PaymentActivity::class.java)
+            val intent = Intent(requireContext(), Riwayattransaksi_Activity::class.java)
             startActivity(intent)
         }
 

@@ -109,7 +109,6 @@ class HomeFragment : Fragment() {
                     // Handle API response errors (e.g., unsuccessful response)
                 }
             }
-
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 // Handle connection errors or other errors
             }
