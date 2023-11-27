@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cc.codingcamp.API.Service
 import com.cc.codingcamp.R
+import com.cc.codingcamp.UI.activity.CancelledActivity
+import com.cc.codingcamp.UI.activity.DeclineActivity
+import com.cc.codingcamp.UI.activity.ProccessActivity
+import com.cc.codingcamp.UI.activity.SucccessActivity
 import com.cc.codingcamp.UI.activity.UnpaidActivity
 import com.cc.codingcamp.adapter.RiwayattransaksiAdapter
 import com.cc.codingcamp.modal.DataTransaksi
@@ -43,12 +47,25 @@ class RiwayattransaksiFragment : Fragment() {
                 val selectedData = riwayattransaksiAdapter.dataSet[position]
 
                 if (selectedData.id_status == "1") {
-                    // Navigasi ke DetailTransaksiActivity jika id_status == "1"
                     val intent = Intent(requireContext(), UnpaidActivity::class.java)
                     intent.putExtra("transaksi_id", selectedData.id_transaksi)
                     startActivity(intent)
-                } else {
-                    Toast.makeText(requireContext(), "ini halaman lain", Toast.LENGTH_SHORT).show()
+                } else if (selectedData.id_status == "2") {
+                    val intent = Intent(requireContext(), ProccessActivity::class.java)
+                    intent.putExtra("transaksi_id", selectedData.id_transaksi)
+                    startActivity(intent)
+                } else if (selectedData.id_status == "3") {
+                    val intent = Intent(requireContext(), SucccessActivity::class.java)
+                    intent.putExtra("transaksi_id", selectedData.id_transaksi)
+                    startActivity(intent)
+                } else if (selectedData.id_status == "4") {
+                    val intent = Intent(requireContext(), DeclineActivity::class.java)
+                    intent.putExtra("transaksi_id", selectedData.id_transaksi)
+                    startActivity(intent)
+                } else if (selectedData.id_status == "5") {
+                    val intent = Intent(requireContext(), CancelledActivity::class.java)
+                    intent.putExtra("transaksi_id", selectedData.id_transaksi)
+                    startActivity(intent)
                 }
             }
         })

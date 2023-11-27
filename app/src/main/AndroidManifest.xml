@@ -16,25 +16,37 @@
         android:theme="@style/Theme.CodingCamp"
         tools:targetApi="31">
         <activity
+            android:name=".UI.activity.CancelledActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.activity.DeclineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.activity.SucccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.activity.ProccessActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.activity.UnpaidActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UI.activity.Riwayattransaksi_Activity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UI.activity.PaymentActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UI.activity.TransactionActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UI.activity.MateriActivity"
             android:exported="false"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UI.activity.ModuldetailActivity"
             android:exported="false" />
@@ -55,6 +67,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
+            android:theme="@style/Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
