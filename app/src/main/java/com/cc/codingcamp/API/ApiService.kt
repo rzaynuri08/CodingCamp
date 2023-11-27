@@ -1,5 +1,7 @@
 package com.cc.codingcamp.API
 
+import com.cc.codingcamp.modal.CancelTransaction
+import com.cc.codingcamp.modal.Challenge
 import com.cc.codingcamp.modal.Course
 import com.cc.codingcamp.modal.DataTransaksi
 import com.cc.codingcamp.modal.Event
@@ -44,6 +46,9 @@ interface ApiService {
     @GET("datamodul.php")
     fun Getproduct() : Call<List<Course>>
 
+    @GET("datachallenge.php")
+    fun getChallenge(): Call<List<Challenge>>
+
     @GET("datametodepembayaran.php")
     fun getMetodePembayaran() : Call<List<MetodePembayaran>>
 
@@ -68,11 +73,23 @@ interface ApiService {
     @GET("detailtransaksi.php")
     fun getDataPayment(@Query("id_transaksi")idTransaksi: String?): Call<List<Payment>>
 
+    @GET("datatransaksi.php")
+    fun getDataDetailTransaksi(@Query("id_transaksi")transaksiId : String?): Call<List<DataTransaksi>>
+
+    @GET("datatransaksi.php")
+    fun getDataTransaksi(
+        @Query("id_status") idStatus: String?,
+        @Query("username") username: String?
+    ): Call<List<DataTransaksi>>
+
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
 
     @POST("transaksimodul.php")
     fun Transaction (@Body transaksi: Transaction): Call<ResponseModel>
+
+    @POST("batalkantransaksi.php")
+    fun cancelTransaction (@Body transaksi: CancelTransaction) : Call<ResponseModel>
 
     @Multipart
     @POST("uploadbukti.php") // Ganti dengan endpoint sesuai API Anda
