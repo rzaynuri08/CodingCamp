@@ -90,6 +90,7 @@ class PaymentActivity : AppCompatActivity() {
         }
 
         val idTransaksi = intent.getStringExtra("idTransaksi")
+        Toast.makeText(this, idTransaksi, Toast.LENGTH_SHORT).show()
         if (idTransaksi != null) {
             getDataPayment(idTransaksi)
         }
