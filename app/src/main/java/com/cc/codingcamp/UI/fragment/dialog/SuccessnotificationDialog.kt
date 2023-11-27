@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.airbnb.lottie.LottieAnimationView
 import com.cc.codingcamp.R
 import com.cc.codingcamp.UI.activity.PaymentActivity
 
@@ -14,8 +15,10 @@ class SuccessnotificationDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.dialog_successnotification, container, false)
+        val view = inflater.inflate(R.layout.dialog_successnotification, container, false)
+
+
+        return view
     }
 
     override fun onDismiss(dialog: DialogInterface) {
