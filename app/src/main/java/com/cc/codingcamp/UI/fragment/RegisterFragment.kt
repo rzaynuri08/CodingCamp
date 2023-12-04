@@ -39,14 +39,19 @@ class RegisterFragment : Fragment() {
             override fun afterTextChanged(editable: Editable?) {
                 val text = editable.toString()
 
-                if (text.startsWith("+62")) {
+                if (text.startsWith("62")) {
                     // Jika diawali dengan +62, hapus karakter +62
-                    val filteredText = text.substring(3)
+                    val filteredText = text.substring(2)
                     noHpEditText.setText(filteredText)
                     noHpEditText.setSelection(noHpEditText.text?.length ?: 0)
                 } else if (text.startsWith("0")) {
                     // Jika diawali dengan 0, hapus karakter 0
                     val filteredText = text.substring(1)
+                    noHpEditText.setText(filteredText)
+                    noHpEditText.setSelection(noHpEditText.text?.length ?: 0)
+                } else if (text.startsWith("+62")) {
+                    // Jika diawali dengan +62, hapus karakter +62
+                    val filteredText = text.substring(3)
                     noHpEditText.setText(filteredText)
                     noHpEditText.setSelection(noHpEditText.text?.length ?: 0)
                 }

@@ -10,10 +10,13 @@ import com.cc.codingcamp.modal.MainPreview
 import com.cc.codingcamp.modal.Materi
 import com.cc.codingcamp.modal.MetodePembayaran
 import com.cc.codingcamp.modal.ModulDimiliki
+import com.cc.codingcamp.modal.MyChallenge
 import com.cc.codingcamp.modal.Payment
+import com.cc.codingcamp.modal.Ranking
 import com.cc.codingcamp.modal.Register
 import com.cc.codingcamp.modal.ResponseModel
 import com.cc.codingcamp.modal.SubPreview
+import com.cc.codingcamp.modal.SubmitChallenge
 import com.cc.codingcamp.modal.Transaction
 import retrofit2.Call
 import retrofit2.http.GET
@@ -49,6 +52,9 @@ interface ApiService {
     @GET("datachallenge.php")
     fun getChallenge(): Call<List<Challenge>>
 
+    @GET("datachallenge.php")
+    fun getChallengeView(@Query("id_challenge") challengeId: String?): Call<List<Challenge>>
+
     @GET("datametodepembayaran.php")
     fun getMetodePembayaran() : Call<List<MetodePembayaran>>
 
@@ -76,11 +82,20 @@ interface ApiService {
     @GET("datatransaksi.php")
     fun getDataDetailTransaksi(@Query("id_transaksi")transaksiId : String?): Call<List<DataTransaksi>>
 
+    @GET("dataperingkat.php")
+    fun getDataRank(): Call<List<Ranking>>
+
     @GET("datatransaksi.php")
     fun getDataTransaksi(
         @Query("id_status") idStatus: String?,
         @Query("username") username: String?
     ): Call<List<DataTransaksi>>
+
+    @GET("datasubmitchallenge.php")
+    fun getDataMychallenge(
+        @Query("username") username: String?,
+        @Query("id_status") statusId: String?
+    ): Call<List<MyChallenge>>
 
     @POST("register.php")
     fun registerUser(@Body user: Register): Call<ResponseModel>
@@ -90,6 +105,9 @@ interface ApiService {
 
     @POST("batalkantransaksi.php")
     fun cancelTransaction (@Body transaksi: CancelTransaction) : Call<ResponseModel>
+
+    @POST("submitchallenge.php")
+    fun submitChallenge(@Body challenge: SubmitChallenge) : Call<ResponseModel>
 
     @Multipart
     @POST("uploadbukti.php") // Ganti dengan endpoint sesuai API Anda

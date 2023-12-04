@@ -50,6 +50,11 @@ class TransactionActivity : AppCompatActivity(), MetodepembayaranDialog.MetodePe
         btnBayar = findViewById(R.id.btn_bayar)
         btnPembayaran = findViewById(R.id.btn_namapembayaran)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val koin = sharedPreferences.getString("koin_dimiliki", "")
+
+        switchDiscount.text = koin
+
         val courseId = intent.getStringExtra("course_id")
         fetchData(courseId)
 

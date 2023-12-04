@@ -123,7 +123,8 @@
             android:id="@+id/txt_nohp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nomor Handphone" />
+            android:hint="Nomor Handphone"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

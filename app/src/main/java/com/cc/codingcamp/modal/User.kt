@@ -9,5 +9,6 @@ data class User(
     val email: String,
     val jenis_kelamin: String,
     val foto_profil: String,
+    val jumlah_modul: String,
     val id_lvl: String
 )

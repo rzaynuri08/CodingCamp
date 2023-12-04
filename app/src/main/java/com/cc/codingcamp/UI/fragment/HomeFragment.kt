@@ -18,6 +18,7 @@ import com.cc.codingcamp.UI.activity.CoursedetailActivity
 import com.cc.codingcamp.R
 import com.cc.codingcamp.adapter.ProductAdapter
 import com.cc.codingcamp.modal.Course
+import com.cc.codingcamp.modal.ModulDimiliki
 import com.cc.codingcamp.modal.User
 import com.squareup.picasso.Picasso
 import retrofit2.Callback
@@ -29,6 +30,8 @@ class HomeFragment : Fragment() {
     private lateinit var productAdapter: ProductAdapter
     private lateinit var userprofile: TextView
     private lateinit var fotoProfile: ImageView
+    private lateinit var koinDimiliki: TextView
+    private lateinit var courseDimiliki: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
@@ -39,6 +42,8 @@ class HomeFragment : Fragment() {
 
         userprofile = view.findViewById(R.id.txt_homeusername)
         fotoProfile = view.findViewById(R.id.txt_homefotoprofil)
+        koinDimiliki = view.findViewById(R.id.txt_koindimiliki)
+        courseDimiliki = view.findViewById(R.id.txt_coursedimiliki)
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -101,7 +106,14 @@ class HomeFragment : Fragment() {
                         // Select the first item to display
                         val user = userList[0]
                         userprofile.text = user.nama_lengkap
+                        koinDimiliki.text = user.koin
+                        courseDimiliki.text = user.jumlah_modul
                         Picasso.get().load(user.foto_profil).into(fotoProfile)
+
+                        val editor = sharedPreferences.edit()
+                        editor.putString("koin_dimiliki", user.koin)
+                        editor.apply()
+
                     } else {
                         Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
                     }

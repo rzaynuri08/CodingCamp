@@ -147,48 +147,66 @@
                         android:layout_height="50dp"
                         android:layout_gravity="bottom"
                         android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp">
+
                             <ImageView
+                                android:id="@+id/imageView6"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center_vertical"
-                                android:src="@drawable/book_64px"/>
+                                android:src="@drawable/book_64px"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
                             <TextView
+                                android:id="@+id/txt_coursedimiliki"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="4dp"
-                                android:textSize="18sp"
-                                android:textColor="#eaeaea"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="5dp"
                                 android:fontFamily="@font/poppins_medium"
-                                android:text="0 Course"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="135dp"
-                            android:orientation="horizontal">
+                                android:text="0 Course"
+                                android:textColor="#eaeaea"
+                                android:textSize="18sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                                app:layout_constraintTop_toTopOf="parent" />
+
                             <ImageView
+                                android:id="@+id/imageView7"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center_vertical"
-                                android:src="@drawable/dollarcoin_96px"/>
+                                android:layout_marginStart="170dp"
+                                android:src="@drawable/dollarcoin_96px"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/txt_coursedimiliki"
+                                app:layout_constraintTop_toTopOf="parent" />
+
                             <TextView
+                                android:id="@+id/txt_koindimiliki"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="4dp"
-                                android:textSize="18sp"
-                                android:textColor="#eaeaea"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="5dp"
                                 android:fontFamily="@font/poppins_medium"
-                                android:text="0"/>
-                        </LinearLayout>
+                                android:text="0"
+                                android:textColor="#eaeaea"
+                                android:textSize="18sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
