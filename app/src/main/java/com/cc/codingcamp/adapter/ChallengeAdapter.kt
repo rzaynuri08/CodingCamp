@@ -11,6 +11,15 @@ import com.cc.codingcamp.modal.Challenge
 class ChallengeAdapter(private val context: Context, var challengeList: List<Challenge>) :
     RecyclerView.Adapter<ChallengeAdapter.ChallengeViewHolder>() {
 
+    private lateinit var mListener: OnItemClickListener
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        mListener = listener
+    }
+
     inner class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val idChallenge: TextView = itemView.findViewById(R.id.txt_idchallenge)
         val jenisBahasaChallenge: TextView = itemView.findViewById(R.id.txt_jenisbahasachallenge)
@@ -37,6 +46,10 @@ class ChallengeAdapter(private val context: Context, var challengeList: List<Cha
         holder.soalChallenge.text = currentChallenge.soal
         holder.koinDidapatkan.text = currentChallenge.koin
         holder.trophyChallenge.text = currentChallenge.tropi
+
+        holder.itemView.setOnClickListener {
+            mListener.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

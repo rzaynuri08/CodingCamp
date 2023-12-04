@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEF1F6"
+    tools:context=".UI.activity.ChallengeActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Submission challenge"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="12dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#220358"
+                        app:cardCornerRadius="7dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp">
+
+                            <TextView
+                                android:id="@+id/txt_jenis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="#JAVA"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        app:cardBackgroundColor="#9800CD"
+                        app:cardCornerRadius="7dp"
+                        app:layout_constraintStart_toEndOf="@+id/cardView9"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp">
+
+                            <TextView
+                                android:id="@+id/txt_level"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="#EASY"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/txt_soal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Tuliskan fungsi ekstensi Kotlin untuk menghitung jumlah karakter dalam sebuah string." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView2"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="-90dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/animate" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-90dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text=" 1. Kerjakan tantangan di kode editor di laptop kamu, kemudian unggah ke repositori GitHub."
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView2" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text=" 2. Pastikan repositori kamu bersifat publik,"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text=" 3. Sertakan catatan kepada reviewer terkait kode yang telah kamu kerjakan."
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ffffff"
+        android:layout_marginStart="12dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/txt_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#00000000"
+            android:hint="Masukkan url disini"
+            android:textSize="16sp"
+            android:textColorHint="#575252"
+            android:textColor="#000000"
+            android:fontFamily="@font/poppins_regular"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="#ffffff"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_kumpulkan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/txt_keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#000000"
+                android:lines="3"
+                android:gravity="start"
+                android:textSize="16sp"
+                android:hint="Berikan catatan kepada reviewer"
+                android:textColorHint="#575252"
+                android:inputType="textMultiLine" />
+
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_kumpulkan"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:text="KUMPULKAN"
+        android:backgroundTint="#000000"
+        app:cornerRadius="5dp"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
